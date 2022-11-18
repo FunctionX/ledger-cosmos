@@ -49,7 +49,7 @@ __Z_INLINE zxerr_t app_fill_address() {
     MEMZERO(G_io_apdu_buffer, IO_APDU_BUFFER_SIZE);
 
     action_addrResponseLen = 0;
-    zxerr_t err = crypto_fillAddress(G_io_apdu_buffer, IO_APDU_BUFFER_SIZE - 2, &action_addrResponseLen);
+    zxerr_t err = crypto_fillETHAddress(G_io_apdu_buffer, IO_APDU_BUFFER_SIZE - 2, &action_addrResponseLen);
 
     if (err != zxerr_ok || action_addrResponseLen == 0) {
         THROW(APDU_CODE_EXECUTION_ERROR);
